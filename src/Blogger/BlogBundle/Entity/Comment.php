@@ -60,6 +60,11 @@ class Comment
 
         $this->setApproved(true);
     }
+    
+    public function __toString()
+    {
+        return $this->comment;
+    }
 
     public static function loadValidatorMetadata(ClassMetadata $metadata)
     {

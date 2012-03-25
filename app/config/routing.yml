@@ -2,6 +2,11 @@ BloggerBlogBundle:
     resource: "@BloggerBlogBundle/Resources/config/routing.yml"
     prefix:   /
 
+BloggerBlogBundle_annotation:
+    resource: "@BloggerBlogBundle/Controller"
+    prefix:   /
+    type:     annotation
+
 # Internal routing configuration to handle ESI
 #_internal:
 #   resource: "@FrameworkBundle/Resources/config/routing/internal.xml"

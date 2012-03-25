@@ -9,8 +9,16 @@
         {% block stylesheets %}
             <link href='http://fonts.googleapis.com/css?family=Irish+Grover' rel='stylesheet' type='text/css'>
             <link href='http://fonts.googleapis.com/css?family=La+Belle+Aurore' rel='stylesheet' type='text/css'>
-            <link href="{{ asset('css/screen.css') }}" type="text/css" rel="stylesheet" />
+           
         {% endblock %}
+
+        {% javascripts
+            '@BloggerBlogBundle/Resources/public/js/*'
+        %}
+            <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
         <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>

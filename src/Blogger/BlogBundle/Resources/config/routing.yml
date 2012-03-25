@@ -19,8 +19,8 @@ BloggerBlogBundle_contact:
 
 
 BloggerBlogBundle_blog_show:
-    pattern:  /{id}
-    defaults: { _controller: BloggerBlogBundle:Blog:show }
+    pattern:  /{id}/{slug}/{comments}
+    defaults: { _controller: BloggerBlogBundle:Blog:show, comments: true }
     requirements:
         _method:  GET
         id: \d+

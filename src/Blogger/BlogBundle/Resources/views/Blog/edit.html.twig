@@ -1,0 +1,53 @@
+{% extends 'BloggerBlogBundle::layout.html.twig' %}
+
+{% block body %}
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+    
+    $(document).ready(function(){
+    
+        function addTagForm() {
+            // Get the div that holds the collection of tags
+            var collectionHolder = $('#blogger_blogbundle_blogtype_comments');
+            // Get the data-prototype we explained earlier
+            var prototype = collectionHolder.attr('data-prototype');
+            // Replace '$$name$$' in the prototype's HTML to
+            // instead be a number based on the current collection's length.
+            form = prototype.replace(/\$\$name\$\$/g, collectionHolder.children().length);
+            // Display the form in the page
+            collectionHolder.append(form);
+        }
+        // Add the link to add tags
+        $('#blogger_blogbundle_blogtype_comments').append('<li><a href="#" class="add_tag_link">Add a tag</a></li>');
+        // When the link is clicked we add the field to input another tag
+        $('.add_tag_link').click(function(event){
+            addTagForm();
+        });
+        
+    });
+</script>
+
+<form action="{{ path('blog_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+    {{ form_widget(edit_form) }}
+    <p>
+        <button type="submit">Edit</button>
+    </p>
+</form>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('blog') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('blog_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>
+
+{%endblock%}
