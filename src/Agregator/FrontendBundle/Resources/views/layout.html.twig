@@ -1,0 +1,31 @@
+{% extends '::base.html.twig' %}
+
+
+{% block stylesheets %}
+    {{ parent () }}
+
+    <link href='/bundles/agregatorfrontend/css/style.css' rel='stylesheet' type='text/css'>
+           
+
+    {% stylesheets
+            '@AgregatorFrontendBundle/Resources/public/css/*'
+        %}
+    {% endstylesheets %}   
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent () }}
+
+{% endblock %}
+
+{% block header %}
+    {% render "AgregatorFrontendBundle:Page:header" %}
+{% endblock %}    
+    
+{% block navigation %}
+    {% render "AgregatorFrontendBundle:Page:navigation" %}
+{% endblock %}
+
+{% block sidebar %}
+    {% render "AgregatorFrontendBundle:Page:sidebar" %}
+{% endblock %}

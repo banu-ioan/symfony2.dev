@@ -28,9 +28,9 @@ class Oferta
     protected $descriere;
     
     /**
-    * @ORM\ManyToOne(targetEntity="Prestatar", inversedBy="oferte")
+    * @ORM\ManyToOne(targetEntity="Prestator", inversedBy="oferte")
     */
-    protected $prestatar;        
+    protected $prestator;        
 
     
     /**
@@ -95,23 +95,23 @@ class Oferta
     }
 
     /**
-     * Set prestatar
+     * Set prestator
      *
-     * @param Agregator\FrontendBundle\Entity\Prestatar $prestatar
+     * @param Agregator\FrontendBundle\Entity\Prestator $prestator
      */
-    public function setPrestatar(\Agregator\FrontendBundle\Entity\Prestatar $prestatar)
+    public function setPrestator(\Agregator\FrontendBundle\Entity\Prestator $prestator)
     {
-        $this->prestatar = $prestatar;
+        $this->prestator = $prestator;
     }
 
     /**
-     * Get prestatar
+     * Get prestator
      *
-     * @return Agregator\FrontendBundle\Entity\Prestatar 
+     * @return Agregator\FrontendBundle\Entity\Prestator 
      */
-    public function getPrestatar()
+    public function getPrestator()
     {
-        return $this->prestatar;
+        return $this->prestator;
     }
 
     /**

@@ -28,9 +28,9 @@ class Oferta
     protected $descriere;
     
     /**
-    * @ORM\ManyToOne(targetEntity="Prestatar", inversedBy="oferte")
+    * @ORM\ManyToOne(targetEntity="Prestator", inversedBy="oferte")
     */
-    protected $prestatar;        
+    protected $prestator;        
 
     
     /**
@@ -39,4 +39,98 @@ class Oferta
      */
     protected $categorii;
     
+    public function __construct()
+    {
+        $this->categorii = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nume
+     *
+     * @param string $nume
+     */
+    public function setNume($nume)
+    {
+        $this->nume = $nume;
+    }
+
+    /**
+     * Get nume
+     *
+     * @return string 
+     */
+    public function getNume()
+    {
+        return $this->nume;
+    }
+
+    /**
+     * Set descriere
+     *
+     * @param text $descriere
+     */
+    public function setDescriere($descriere)
+    {
+        $this->descriere = $descriere;
+    }
+
+    /**
+     * Get descriere
+     *
+     * @return text 
+     */
+    public function getDescriere()
+    {
+        return $this->descriere;
+    }
+
+    /**
+     * Set prestator
+     *
+     * @param Agregator\FrontendBundle\Entity\Prestator $prestator
+     */
+    public function setPrestator(\Agregator\FrontendBundle\Entity\Prestator $prestator)
+    {
+        $this->prestator = $prestator;
+    }
+
+    /**
+     * Get prestator
+     *
+     * @return Agregator\FrontendBundle\Entity\Prestator 
+     */
+    public function getPrestator()
+    {
+        return $this->prestator;
+    }
+
+    /**
+     * Add categorii
+     *
+     * @param Agregator\FrontendBundle\Entity\Categorie $categorii
+     */
+    public function addCategorie(\Agregator\FrontendBundle\Entity\Categorie $categorii)
+    {
+        $this->categorii[] = $categorii;
+    }
+
+    /**
+     * Get categorii
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getCategorii()
+    {
+        return $this->categorii;
+    }
 }

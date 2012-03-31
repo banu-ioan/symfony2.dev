@@ -5,11 +5,11 @@ AgregatorFrontendBundle:
 
 BloggerBlogBundle:
     resource: "@BloggerBlogBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /blog
 
 BloggerBlogBundle_annotation:
     resource: "@BloggerBlogBundle/Controller"
-    prefix:   /
+    prefix:   /blog
     type:     annotation
 
 # Internal routing configuration to handle ESI

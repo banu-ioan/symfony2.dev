@@ -6,10 +6,10 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
- * @ORM\Entity(repositoryClass="Agregator\FrontendBundle\Repository\PrestatarRepository")
+ * @ORM\Entity(repositoryClass="Agregator\FrontendBundle\Repository\PrestatorRepository")
  * @UniqueEntity("email")
  */
-class Prestatar
+class Prestator
 {
     /**
      * @ORM\Id
@@ -41,7 +41,7 @@ class Prestatar
     
     
     /**
-     * @ORM\OneToMany(targetEntity="Oferta", mappedBy="prestatar")
+     * @ORM\OneToMany(targetEntity="Oferta", mappedBy="prestator")
      **/
     private $oferte;
     public function __construct()
