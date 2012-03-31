@@ -1,0 +1,47 @@
+<?php
+namespace Agregator\FrontendBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+
+/**
+ * @ORM\Entity(repositoryClass="Agregator\FrontendBundle\Repository\PrestatarRepository")
+ * @UniqueEntity("email")
+ */
+class Prestatar
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    public $id;
+    
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $nume;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $prenume;
+    
+    /**
+     * @ORM\Column(type="smallint")
+     */
+    protected $varsta;
+    
+    /**
+     * @ORM\Column(type="string", length=255, unique=true)
+     * @Assert\Email()
+     */
+    protected $email;
+    
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Oferta", mappedBy="prestatar")
+     **/
+    private $oferte;
+}

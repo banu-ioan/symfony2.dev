@@ -1,3 +1,8 @@
+AgregatorFrontendBundle:
+    resource: "@AgregatorFrontendBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 BloggerBlogBundle:
     resource: "@BloggerBlogBundle/Resources/config/routing.yml"
     prefix:   /

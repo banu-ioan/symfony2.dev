@@ -1,0 +1,35 @@
+<?php
+namespace Agregator\FrontendBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * @ORM\Entity
+ */
+class Categorie
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    public $id;
+    
+        
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $nume;
+    
+    /**
+    * @ORM\ManyToMany(targetEntity="Oferta", mappedBy="categorii")
+    */
+    protected $oferte;
+    
+    /**
+    * @ORM\ManyToMany(targetEntity="Cerere", mappedBy="categorii")
+    */
+    protected $cereri;
+    
+}

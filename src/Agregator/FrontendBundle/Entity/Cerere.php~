@@ -1,0 +1,42 @@
+<?php
+namespace Agregator\FrontendBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * @ORM\Entity(repositoryClass="Agregator\FrontendBundle\Repository\CerereRepository")
+ */
+class Cerere
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    public $id;
+    
+    
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $nume;
+    
+    /**
+     * @ORM\Column(type="text")
+     */
+    protected $descriere;
+    
+    /**
+    * @ORM\ManyToOne(targetEntity="Beneficiar", inversedBy="cereri")
+    */
+    protected $beneficiar;        
+
+    
+    /**
+     * @ORM\ManyToMany(targetEntity="Categorie", inversedBy="cereri")
+     * @ORM\JoinTable(name="CereriCategorii")
+     */
+    protected $categorii;
+    
+}
