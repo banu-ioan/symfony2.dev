@@ -12,6 +12,7 @@ class CerereFixtures extends AbstractFixture implements OrderedFixtureInterface
     {
         $Cerere = new Cerere();
         $Cerere->setNume('Cerere de vopsitor');
+        $Cerere->setSlug('Cerere-de-vopsitor');
         $Cerere->setDescriere('Am nevoie de un vopsitor');
         $Cerere->setBeneficiar($manager->merge($this->getReference('beneficiar-1')));
         $Cerere->addCategorie($manager->merge($this->getReference('Categorie test 2')));
@@ -19,6 +20,7 @@ class CerereFixtures extends AbstractFixture implements OrderedFixtureInterface
                 
         $Cerere = new Cerere();
         $Cerere->setNume('Cerere de instalator');
+        $Cerere->setSlug('Cerere-de-instalator');
         $Cerere->setDescriere('Am nevoie de un instalator');
         $Cerere->setBeneficiar($manager->merge($this->getReference('beneficiar-3')));
         $Cerere->addCategorie($manager->merge($this->getReference('Categorie test 1')));
@@ -26,6 +28,7 @@ class CerereFixtures extends AbstractFixture implements OrderedFixtureInterface
         
         $Cerere = new Cerere();
         $Cerere->setNume('Cerere de tinichigiu');
+        $Cerere->setSlug('Cerere-de-tinichigiu');
         $Cerere->setDescriere('Am nevoie de un tinichigiu');
         $Cerere->setBeneficiar($manager->merge($this->getReference('beneficiar-3')));
         $Cerere->addCategorie($manager->merge($this->getReference('Categorie test 2')));

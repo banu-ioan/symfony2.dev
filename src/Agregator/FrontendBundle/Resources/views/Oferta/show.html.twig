@@ -1,0 +1,16 @@
+{% extends "AgregatorFrontendBundle::layout.html.twig" %}
+
+{% block body %}
+
+    <article class="post">
+
+        <h2 class="entry-title">
+            {{ oferta.nume }}
+        </h2>
+
+        <div class="entry-content">
+            {{ oferta.descriere }}
+        </div>
+    </article>
+
+{% endblock %}

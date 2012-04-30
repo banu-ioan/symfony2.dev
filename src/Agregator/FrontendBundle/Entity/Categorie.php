@@ -1,6 +1,7 @@
 <?php
 namespace Agregator\FrontendBundle\Entity;
 
+use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -32,10 +33,16 @@ class Categorie
     */
     protected $cereri;
     
+    /**
+     * @Gedmo\Slug(fields={"nume"})
+     * @ORM\Column(length=128, unique=true)
+     */
+    private $slug;
+    
     public function __construct()
     {
         $this->oferte = new \Doctrine\Common\Collections\ArrayCollection();
-    $this->cereri = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->cereri = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
     /**
@@ -106,5 +113,25 @@ class Categorie
     public function getCereri()
     {
         return $this->cereri;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

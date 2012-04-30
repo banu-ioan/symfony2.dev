@@ -12,4 +12,18 @@ use Doctrine\ORM\EntityRepository;
  */
 class OfertaRepository extends EntityRepository
 {
+    public function findAllByCategorySlug($slug)
+    {
+        $qb = $this->_em->createQueryBuilder();
+        
+        $qb ->select('partial o.{id, nume, descriere, slug}' )
+            ->from('AgregatorFrontendBundle:Oferta', 'o')
+            ->leftJoin('o.categorii', 'c')
+            ->where("c.slug = '$slug'")
+            ;
+        
+        $results = $qb->getQuery()->getArrayResult();
+        
+        return $results;
+    }
 }

@@ -1,6 +1,7 @@
 <?php
 namespace Agregator\FrontendBundle\Entity;
 
+use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -38,6 +39,14 @@ class Cerere
      * @ORM\JoinTable(name="CereriCategorii")
      */
     protected $categorii;
+    
+    
+    /**
+     * @Gedmo\Slug(fields={"nume"})
+     * @ORM\Column(length=128, unique=true)
+     */
+    private $slug;
+    
     
     public function __construct()
     {
@@ -132,5 +141,25 @@ class Cerere
     public function getCategorii()
     {
         return $this->categorii;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

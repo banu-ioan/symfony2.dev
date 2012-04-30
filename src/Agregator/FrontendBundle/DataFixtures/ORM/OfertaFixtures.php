@@ -12,6 +12,7 @@ class OfertaFixtures extends AbstractFixture implements OrderedFixtureInterface
     {
         $Oferta = new Oferta();
         $Oferta->setNume('Sint vopsitor');
+        $Oferta->setSlug('Sint-vopsitor');
         $Oferta->setDescriere('Va ofer servisiile');
         $Oferta->setPrestator($manager->merge($this->getReference('prestator-1')));
         $Oferta->addCategorie($manager->merge($this->getReference('Categorie test 2')));
@@ -19,6 +20,7 @@ class OfertaFixtures extends AbstractFixture implements OrderedFixtureInterface
                 
         $Oferta = new Oferta();
         $Oferta->setNume('Sint instalator');
+        $Oferta->setSlug('Sint-instalator');
         $Oferta->setDescriere('Luati-ma');
         $Oferta->setPrestator($manager->merge($this->getReference('prestator-3')));
         $Oferta->addCategorie($manager->merge($this->getReference('Categorie test 1')));
@@ -26,6 +28,7 @@ class OfertaFixtures extends AbstractFixture implements OrderedFixtureInterface
         
         $Oferta = new Oferta();
         $Oferta->setNume('Sint tinichigiu');
+        $Oferta->setSlug('Sint-tinichigiu');
         $Oferta->setDescriere('7 ore pe zi 5 zile pe saptamana, ieftin');
         $Oferta->setPrestator($manager->merge($this->getReference('prestator-3')));
         $Oferta->addCategorie($manager->merge($this->getReference('Categorie test 2')));

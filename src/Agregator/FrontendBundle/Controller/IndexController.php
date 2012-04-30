@@ -26,4 +26,22 @@ class IndexController extends Controller
         );
     }
     
+    /**
+     * @Route("/categorie/{slug}", name="show_categorie")
+     * @Template()
+     */
+    public function showCategoryAction($slug)
+    {
+        $em = $this->getDoctrine()
+                   ->getEntityManager();
+        
+        $oferte = $em->getRepository('AgregatorFrontendBundle:Oferta')
+                ->findAllByCategorySlug($slug);
+        
+
+        return array(
+            'oferte' => $oferte,
+        );
+    }
+    
 }

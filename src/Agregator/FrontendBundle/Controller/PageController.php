@@ -24,7 +24,14 @@ class PageController extends Controller
      */
     public function sidebarAction()
     {
+        $em = $this->getDoctrine()
+                   ->getEntityManager();
+
+        $categorii = $em->getRepository('AgregatorFrontendBundle:Categorie')
+                ->findAll();
+
         return array(
+            'categorii' => $categorii,
         );
     }
     

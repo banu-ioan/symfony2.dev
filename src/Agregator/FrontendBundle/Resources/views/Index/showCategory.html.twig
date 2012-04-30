@@ -1,0 +1,21 @@
+{% extends "AgregatorFrontendBundle::layout.html.twig" %}
+
+{% block body %}
+
+    {% for oferta in oferte %}
+        <article class="post">
+
+            <h2 class="entry-title">
+                <a href="{{ path('show_oferta', { 'slug': oferta.slug }) }}">
+                    {{ oferta.nume }}
+                </a>
+            </h2>
+            
+            <div class="entry-content">
+                {{ oferta.descriere }}
+            </div>
+        </article>
+     {% else %}
+        <h2 class="entry-title">Nu s-a gasit nici o oferta.</h2>
+     {% endfor %}
+{% endblock %}

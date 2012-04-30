@@ -1,13 +1,15 @@
     
     <aside class="widget">
-        <h3>Sidebar heading</h3>
+        <h3>Categorii</h3>
 
         <ul>
-            <li><a href="#">Li element</a></li>
-            <li><a href="#">Li element</a></li>
-            <li><a href="#">Li element</a></li>
-            <li><a href="#">Li element</a></li>
-            <li><a href="#">Li element</a></li>
+            {% for categorie in categorii %}
+                <li>
+                    <a href="{{ path('show_categorie', { 'slug': categorie.getSlug }) }}">
+                        {{ categorie.getNume }}
+                    </a>
+                </li>
+            {% endfor %}
         </ul>
     </aside> <!-- .widget -->
 
