@@ -23,6 +23,7 @@ class AppKernel extends Kernel
             new Agregator\FrontendBundle\AgregatorFrontendBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new Agregator\UserBundle\AgregatorUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
